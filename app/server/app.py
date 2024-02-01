@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.server.routes.lot import router as LotRouter
+from server.routes.lot import router as LotRouter
 
 app = FastAPI()
 

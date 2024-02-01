@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Body
 from fastapi.encoders import jsonable_encoder
 
-from app.server.database.lot import (
+from server.database.lot import (
     add_lot,
     delete_lot,
     retrieve_lot,
@@ -12,7 +12,8 @@ from server.models.lot import (
     ErrorResponseModel,
     ResponseModel,
     LotSchema,
-    UpdateDataSchema,
+    # UpdateDataSchema,
+    UpdateLotSchema,
 )
 
 router = APIRouter()
