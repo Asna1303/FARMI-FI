@@ -19,7 +19,7 @@ class LotSchema(BaseModel):
     class Config:
         schema_extra = {
             "example": {
-                "name": "John Doe",
+                "name": "lotA",
                 "blocks": "146",
                 "status": "running",
                 "active": True,
@@ -31,31 +31,5 @@ class LotSchema(BaseModel):
         }
 
 
-class Data(BaseModel):
-    date: Optional[DateTime]
-    workdone: Optional[str]
-    yieldobtained: Optional[int]
-    lotid: Optional[int]
-    
-    class Config:
-        schema_extra = {
-            "example": {
-                "date": "2022-02-01T12:34:56.789000",
-                "workdone": "planted",
-                "yieldobtained": "100",
-                "lotid": 4,
-               
-            }
-        }
 
 
-def ResponseModel(data, message):
-    return {
-        "data": [data],
-        "code": 200,
-        "message": message,
-    }
-
-
-def ErrorResponseModel(error, code, message):
-    return {"error": error, "code": code, "message": message}
