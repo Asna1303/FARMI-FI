@@ -4,7 +4,7 @@ MONGO_DETAILS = "mongodb://localhost:27017"
 
 client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_DETAILS)
 
-database = client.lots
+database = client.farm
 
 lot_collection = database.get_collection("lots_collection")
 

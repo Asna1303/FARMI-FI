@@ -8,7 +8,7 @@ class DataSchema(BaseModel):
     date: datetime
     workdone: str
     yieldobtained: int
-    lotid: int
+    lotid: str
     
     class Config:
         schema_extra = {
@@ -24,7 +24,7 @@ class UpdateDataSchema(BaseModel):
     date: Optional[datetime]
     workdone: Optional[str]
     yieldobtained: Optional[int]
-    lotid: Optional[int]
+    lotid: Optional[str]
     
    
 

@@ -5,7 +5,7 @@ MONGO_DETAILS = "mongodb://localhost:27017"
 
 data_client = AsyncIOMotorClient(MONGO_DETAILS)
 
-data_database = data_client.data  # Change 'data' to your desired database name
+data_database = data_client.farm  # Change 'data' to your desired database name
 
 data_collection = data_database.get_collection("data_collection")
 
