@@ -1,11 +1,11 @@
 import datetime
 from typing import Optional
-from click import DateTime
+from datetime import datetime
 
 from pydantic import BaseModel, Field
 
 class DataSchema(BaseModel):
-    date: Optional[DateTime]
+    date: Optional[datetime]
     workdone: Optional[str]
     yieldobtained: Optional[int]
     lotid: Optional[int]

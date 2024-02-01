@@ -4,7 +4,7 @@ from fastapi.encoders import jsonable_encoder
 from server.database.lot import (
     add_lot,
     delete_lot,
-    retrieve_lot,
+    retrieve_lots,
     retrieve_lot,
     update_lot,
 )
@@ -26,7 +26,7 @@ async def add_lot_data(lot: LotSchema = Body(...)):
 
 @router.get("/", response_description="Lots retrieved")
 async def get_lots():
-    lots = await retrieve_lot()
+    lots = await retrieve_lots()
     if lots:
         return ResponseModel(lots, "Lots data retrieved successfully")
     return ResponseModel(lots, "Empty list returned")
