@@ -5,10 +5,10 @@ from datetime import datetime
 from pydantic import BaseModel, Field
 
 class DataSchema(BaseModel):
-    date: Optional[datetime]
-    workdone: Optional[str]
-    yieldobtained: Optional[int]
-    lotid: Optional[int]
+    date: datetime
+    workdone: str
+    yieldobtained: int
+    lotid: int
     
     class Config:
         schema_extra = {
@@ -16,7 +16,40 @@ class DataSchema(BaseModel):
                 "date": "2022-02-01T12:34:56.789000",
                 "workdone": "planted",
                 "yieldobtained": "100",
-                "lotid": 4,
+                "lotid": 4
                
             }
         }
+class UpdateDataSchema(BaseModel):
+    date: Optional[datetime]
+    workdone: Optional[str]
+    yieldobtained: Optional[int]
+    lotid: Optional[int]
+    
+   
+
+    class Config:
+        schema_extra = {
+             "example": {
+                "date": "2022-02-01T12:34:56.789000",
+                "workdone": "planted",
+                "yieldobtained": "100",
+                "lotid": 4
+               
+           
+                
+            }
+        }
+
+
+def ResponseModel(data, message):
+    return {
+        "data": [data],
+        "code": 200,
+        "message": message,
+    }
+
+
+def ErrorResponseModel(error, code, message):
+    return {"error": error, "code": code, "message": message}
+
