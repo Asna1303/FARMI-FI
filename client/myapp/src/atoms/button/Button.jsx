@@ -1,9 +1,10 @@
 import React from 'react'
+import "./Button.css"
 
 const Button = () => {
   return (
     <div>
-        <button>search</button>
+        <button className='button_style'>search</button>
     </div>
   )
 }
