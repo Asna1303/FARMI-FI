@@ -7,6 +7,8 @@ from server.database.data import (
     retrieve_all_data,
     retrieve_data_by_id,
     update_data,
+    retrieve_data_by_lot,
+
 )
 from server.models.data import (
     ErrorResponseModel,
@@ -64,4 +66,9 @@ async def delete_data_entry(id: str):
     )
 
 
-
+@router.get("/lotdata/{lotid}", response_description="Data retrieved")
+async def get_retrive_data_by_lot(lotid):
+    data = await retrieve_data_by_lot(lotid)
+    if data:
+        return ResponseModel(data, "Data retrieved successfully")
+    return ErrorResponseModel("An error occurred.", 404, "Data doesn't exist.")

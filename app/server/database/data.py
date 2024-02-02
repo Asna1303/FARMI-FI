@@ -64,3 +64,18 @@ async def delete_data(id: str):
     if existing_data:
         await data_collection.delete_one({"_id": ObjectId(id)})
         return True
+    
+# Retrieve data with a matching ID
+async def retrieve_data_by_id(id: str) -> dict:
+    data = await data_collection.find({"lotid": id})
+    if data:
+        return data_helper(data)
+
+    
+
+    # Retrieve all data present in the database
+async def retrieve_data_by_lot(lotid: str) -> dict:
+    data_by_lot = []
+    async for data in data_collection.find({"lotid": lotid}):
+        data_by_lot.append(data_helper(data))
+    return data_by_lot
