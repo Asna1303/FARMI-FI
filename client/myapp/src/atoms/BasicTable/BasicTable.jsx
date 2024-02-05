@@ -16,12 +16,12 @@ const rows = [
   createData(2, '2022-02-03', 'Task 2', 37, 1002),
   createData(3, '2022-02-04', 'Task 3', 24, 1003),
   createData(4, '2022-02-05', 'Task 4', 67, 1004),
-  createData(5, '2022-02-06', 'Task 5', 49, 1005),
+
 ];
 
 export default function BasicTable() {
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper}  sx={{ backgroundColor: "#F7C35F", borderRadius: "5" }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
