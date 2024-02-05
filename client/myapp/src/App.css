@@ -65,6 +65,8 @@ body {
 
 .primary-text-component{
   text-align: left;
+  padding-left: 80px;
+  margin-top: 60px;
 }
 .text-img{
   /* width: 50%; */
@@ -73,13 +75,18 @@ body {
 }
 .primary-box{
   display: flex;
-  
+  justify-content: space-between; 
+  margin-top: 150px;
+  margin-bottom: 20px;
 }
 
 .details{
   text-align: left;
   display: flex;
   flex-direction: column;
+  margin-bottom: 100px;
+  padding-left: 300px;
+  
 }
 
 .main-flex-styling{
