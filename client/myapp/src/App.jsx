@@ -14,19 +14,38 @@ import Headings from './atoms/headings/headings';
 
 function App() {
   return (
-    <div className="App">
-     <Button/>
-     <SelectField/>
-     <div className='example'>
-     <Discover/>
-     <Lotdetails/>
-     < BasicTable/>
-     <img src = {decr} alt='decr'></img> 
-     <Headings/>
-     </div>
+    <div className="main-flex-styling">
+  
+    
+    { /*<Lotdetails/>*/}
      
+     
+     
+    
+     {/* < BasicTable/> */}
+     
+     <div className='primary-text-component'>
+       <Headings className="welcome-font" text="WELCOME TO AGRICULTURE FARM"/>
+       <div className='text-img'>
+         <Headings className="name-font" text="FARMI-fi"/>
+         <img src = {decr} alt='decr'></img>
+       </div>
+       <Discover/>
+     </div>
+
+     <div className='details'>
+      <div className='primary-box'>
+        <SelectField/>
+        <Button/>
+      </div>
+      <Lotdetails/>
+      <BasicTable/>
+     </div>
+    
     </div>
+
   );
 }
 
 export default App;
+

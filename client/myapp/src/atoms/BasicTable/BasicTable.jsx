@@ -16,41 +16,44 @@ const rows = [
   createData(2, '2022-02-03', 'Task 2', 37, 1002),
   createData(3, '2022-02-04', 'Task 3', 24, 1003),
   createData(4, '2022-02-05', 'Task 4', 67, 1004),
-
 ];
 
-export default function BasicTable() {
+const BasicTable = () => {
   return (
-    <TableContainer component={Paper}  sx={{ backgroundColor: "#F7C35F", borderRadius: "5" }}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell>Date</TableCell>
-            <TableCell>Work Done</TableCell>
-            <TableCell>Yield Obtained in grams</TableCell>
-            <TableCell>Lot ID</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.id}
-              </TableCell>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.workdone}</TableCell>
-              <TableCell>{row.yieldobtained}</TableCell>
-              <TableCell>{row.lotid}</TableCell>
+    <div style={{}}>
+      <TableContainer component={Paper} sx={{ backgroundColor: "#F7C35F", borderRadius: "5"}}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>ID</TableCell>
+              <TableCell>Date</TableCell>
+              <TableCell>Work Done</TableCell>
+              <TableCell>Yield Obtained in grams</TableCell>
+              <TableCell>Lot ID</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow
+                key={row.id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {row.id}
+                </TableCell>
+                <TableCell>{row.date}</TableCell>
+                <TableCell>{row.workdone}</TableCell>
+                <TableCell>{row.yieldobtained}</TableCell>
+                <TableCell>{row.lotid}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
   );
-}
+};
+
+export default BasicTable;
 
 

@@ -63,18 +63,25 @@ body {
   margin-top: 20px;
 }
 
-welcomefont {
-  font-family: Poppins;
-  font-size: 16;
-  line-height: auto;
-  letter-spacing: 8%;
-
+.primary-text-component{
+  text-align: left;
+}
+.text-img{
+  /* width: 50%; */
+  /* border: 2px solid red; */
+  display: flex;
+}
+.primary-box{
+  display: flex;
+  
 }
 
-namefont{
-  font-family: Poppins;
-  font-size: 86;
-  line-height: 140.5%;
-  letter-spacing: 0%;
+.details{
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
 
+.main-flex-styling{
+  display: flex;
 }
