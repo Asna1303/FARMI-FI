@@ -13,6 +13,8 @@ import BasicTable from './atoms/BasicTable/BasicTable';
 function App() {
   return (
     <div className="App">
+      {/* <img src = {farmpic} alt='farmpic'></img>  */}
+     
      <Button/>
      <SelectField/>
      <div className='example'>
@@ -21,7 +23,6 @@ function App() {
      < BasicTable/>
 
      </div>
-     <img src = {farmpic} alt='farmpic'></img> 
      
     </div>
   );

@@ -40,3 +40,23 @@
 .example{
   display: flex;
 }
+
+/* App.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url('./images/bg.png') center top no-repeat;
+  background-size: cover;
+  
+}
+
+.App {
+  text-align: center;
+}
+
+.example {
+  margin-top: 20px;
+}
+
+
