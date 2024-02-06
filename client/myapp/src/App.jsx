@@ -13,16 +13,13 @@ import Headings from './atoms/headings/headings';
 
 
 function App() {
+  const handleSearch= (e) =>{
+    e.preventDefault();
+    console.log("Search button is clicked");
+
+  }
   return (
     <div className="main-flex-styling">
-  
-    
-    { /*<Lotdetails/>*/}
-     
-     
-     
-    
-     {/* < BasicTable/> */}
      
      <div className='primary-text-component'>
        <Headings className="welcome-font" text="WELCOME TO AGRICULTURE FARM"/>
@@ -36,7 +33,7 @@ function App() {
      <div className='details'>
       <div className='primary-box'>
         <SelectField/>
-        <Button/>
+        <Button text="Search" handleChange={handleSearch}/>
       </div>
       <Lotdetails/>
       <BasicTable/>
