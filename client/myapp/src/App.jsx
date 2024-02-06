@@ -21,8 +21,8 @@ function App() {
     axios
     .get("http://localhost:8000/lot/")
     .then((response)=>{
-      console.log(response.data.data)
-      setlotOptions(response.data.data)
+      setlotOptions(response.data.data[0])
+      console.log(lotOptions)
     })
   })
 
@@ -47,7 +47,7 @@ function App() {
 
      <div className='details'>
       <div className='primary-box'>
-        <SelectField/>
+        <SelectField options={lotOptions}/>
         <Button text="Search" handleChange={handleSearch}/>
       </div>
       <Lotdetails/>

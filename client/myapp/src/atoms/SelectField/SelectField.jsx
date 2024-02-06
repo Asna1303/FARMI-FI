@@ -3,8 +3,10 @@ import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { MenuItem } from '@mui/material';
 
-const SelectField = () => {
+const SelectField = ({ options }) => {
+  console.log(options)
   return (
     <div>
         <Box sx={{ minWidth: 120 }}>
@@ -18,6 +20,14 @@ const SelectField = () => {
           label="Age"
           // onChange={handleChange}
         >
+          {
+            options.map((item) => (
+              <MenuItem key={item.id} value={item.name}>
+              {item.name}
+              </MenuItem>
+            ))
+          }
+          <MenuItem ></MenuItem>
         </Select>
       </FormControl>
     </Box>
@@ -26,3 +36,6 @@ const SelectField = () => {
 }
 
 export default SelectField
+
+
+
