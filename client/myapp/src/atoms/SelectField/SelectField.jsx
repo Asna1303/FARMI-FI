@@ -5,8 +5,9 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { MenuItem } from '@mui/material';
 
-const SelectField = ({ options }) => {
+const SelectField = ({ options ,handleChange}) => {
   console.log(options)
+  
   return (
     <div>
         <Box sx={{ minWidth: 120 }}>
@@ -18,7 +19,7 @@ const SelectField = ({ options }) => {
           id="demo-simple-select"
           // value={age}
           label="Age"
-          // onChange={handleChange}
+          onChange={handleChange}
         >
           {
             options.map((item) => (

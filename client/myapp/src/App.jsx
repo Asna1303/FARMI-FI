@@ -16,6 +16,7 @@ import Headings from './atoms/headings/headings';
 
 function App() {
   const[lotOptions,setlotOptions] =useState([]);
+  const [selectedLot, setselectedLot] = useState([]);
 
   useEffect(()=>{
     axios
@@ -27,12 +28,38 @@ function App() {
   })
 
 
+//  useEffect(()=>{
+//   axios
+//   .get("http://localhost:8000/data/lotdata/65bb48db5b73faa57f415000")
+//   .then((response)=>{
+//     setselectedLot(response.data.data[0])
+//     console.log(selectedLot)
+//   })
+// })
+
+
+
 
   const handleSearch= (e) =>{
     e.preventDefault();
     console.log("Search button is clicked");
+    axios
+    .get('http://localhost:8000/data/lotdata/${selectedLot.id}/')
+  .then((response)=>{
+   setselectedLot(response.data.data[0])
+    console.log(selectedLot)
+   })
 
   }
+
+  const handleChange=(e)=>{
+    e.preventDefault();
+    setselectedLot({
+    id : e.target.key
+  })
+
+  }
+
   return (
     <div className="main-flex-styling">
      
