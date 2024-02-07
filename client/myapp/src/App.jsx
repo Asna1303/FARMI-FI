@@ -33,10 +33,18 @@ const [selectedLot, setselectedLot] =  useState("");
   .get("http://localhost:8000/data/lotdata/65bb48db5b73faa57f415000")
   .then((response)=>{
     const displaylot = response.data.data[0]
+    const options = displaylot.map((lot)=>({
+      value:lot.id,
+      label:lot.name,
+    }))
     
-  setselectedLot(response.data.data[0])
+    setlotOptions(options);
     
-    }) })
+  }
+    )
+  .catch (error=>console.error("the error is : ",error))
+  },[])
+
 
 
 
@@ -60,7 +68,10 @@ const [selectedLot, setselectedLot] =  useState("");
   })
 
   }
+const handlelotChange=(selectedValue)=>{
+  setselectedLot(selectedValue)
 
+}
   return (
     <div className="main-flex-styling">
      
@@ -75,7 +86,10 @@ const [selectedLot, setselectedLot] =  useState("");
 
      <div className='details'>
       <div className='primary-box'>
-        <SelectField options={lotOptions}/>
+        <SelectField options={lotOptions} 
+        value={selectedLot} 
+        onchange={handlelotChange}/>
+        
         <Button text="Search" handleChange={handleSearch}/>
       </div>
       <Lotdetails/>
