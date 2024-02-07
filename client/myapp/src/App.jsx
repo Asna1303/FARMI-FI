@@ -59,10 +59,14 @@ const handlelotChange=(selectedValue)=>{
   setselectedLot(selectedValue)
 
 }
-const handleButtonClick=()=>{
+const handleButtonClick=(e)=>{
+  e.preventDefault();
   axios
-  .get(`http://localhost:8000/data/lotdata/${selectedLot}`)
-
+  .get(`http://localhost:8000/data/lotdata/${selectedLot}/`)
+.then((response)=>{
+  const lotData=response.data.data[0]
+  console.log(response)
+})
 }
 
   return (

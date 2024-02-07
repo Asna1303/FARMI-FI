@@ -5,7 +5,7 @@ const Button = (props) => {
   return (
     
           
-      <button className='button_style' onClick={props.handleChange}>
+      <button className='button_style' onClick={props.handleSubmit}>
       <img src = {search} alt='search'></img> 
     {props.text}
         </button>

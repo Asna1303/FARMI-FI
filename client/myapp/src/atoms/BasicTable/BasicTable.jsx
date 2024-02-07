@@ -20,7 +20,7 @@ const rows = [
 
 const BasicTable = () => {
   return (
-    <div style={{}}>
+    <div>
       <TableContainer component={Paper} sx={{ backgroundColor: "#F7C35F", borderRadius: "5"}}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
