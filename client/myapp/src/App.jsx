@@ -16,28 +16,21 @@ import Headings from './atoms/headings/headings';
 
 function App() {
   const[lotOptions,setlotOptions] =useState([]);
-const [selectedLot, setselectedLot] =  useState("");
+  const [selectedLot, setselectedLot] =  useState("");
   const [data,setdata]= useState([]);
 
-  useEffect(()=>{
-    axios
-    .get("http://localhost:8000/lot/")
-    .then((response)=>{
-      setlotOptions(response.data.data[0])
-    })
-  })
-
+  
 
  useEffect(()=>{
   axios
-  .get("http://localhost:8000/data/lotdata/65bb48db5b73faa57f415000")
+  .get("http://localhost:8000/lot/")
   .then((response)=>{
     const displaylot = response.data.data[0]
     const options = displaylot.map((lot)=>({
       value:lot.id,
       label:lot.name,
     }))
-    
+    console.log(displaylot)
     setlotOptions(options);
     
   }
@@ -49,29 +42,29 @@ const [selectedLot, setselectedLot] =  useState("");
 
 
 
-  const handleSearch= (e) =>{
-    e.preventDefault();
-    console.log("Search button is clicked");
-    axios
-    .get('http://localhost:8000/data/lotdata/${selectedLot.id}/')
-  .then((response)=>{
-   setselectedLot(response.data.data[0])
-    console.log(selectedLot)
-   })
+  // const handleSearch= (e) =>{
+  //   e.preventDefault();
+  //   console.log("Search button is clicked");
+  //   axios
+  //   .get('http://localhost:8000/data/lotdata/${selectedLot.id}/')
+  // .then((response)=>{
+  //  setselectedLot(response.data.data[0])
+  //   console.log(selectedLot)
+  //  })
 
-  }
+  // }
 
-  const handleChange=(e)=>{
-    e.preventDefault();
-    setselectedLot({
-    id : e.target.key
-  })
-
-  }
+  
 const handlelotChange=(selectedValue)=>{
   setselectedLot(selectedValue)
 
 }
+const handleButtonClick=()=>{
+  axios
+  .get(`http://localhost:8000/data/lotdata/${selectedLot}`)
+
+}
+
   return (
     <div className="main-flex-styling">
      
@@ -88,9 +81,10 @@ const handlelotChange=(selectedValue)=>{
       <div className='primary-box'>
         <SelectField options={lotOptions} 
         value={selectedLot} 
-        onchange={handlelotChange}/>
-        
-        <Button text="Search" handleChange={handleSearch}/>
+        onChange={handlelotChange}/>
+
+        <Button text="Search" 
+        handleSubmit= {handleButtonClick}/>
       </div>
       <Lotdetails/>
       <BasicTable/>

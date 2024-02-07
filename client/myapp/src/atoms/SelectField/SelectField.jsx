@@ -5,8 +5,12 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { MenuItem } from '@mui/material';
 
-const SelectField = ({ options ,handleChange}) => {
-  
+const SelectField = ({ options ,onChange,value}) => {
+  const handleChange=(e) => {
+        const selectedValue=e.target.value;
+        onChange(selectedValue)
+        console.log(selectedValue)
+  }
   return (
     <div>
         <Box sx={{ minWidth: 120 }}>
@@ -16,18 +20,17 @@ const SelectField = ({ options ,handleChange}) => {
         sx={{backgroundColor:"#F7C35F",borderradius:"5",height:"57px",width:"487px"}}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          // value={age}
+           value={value}
           label="Age"
           onChange={handleChange}
         >
           {
             options.map((item) => (
-              <MenuItem key={item.id} value={item.name}>
-              {item.name}
+              <MenuItem key={item.value} value={item.value} >
+             {item.label}
               </MenuItem>
             ))
           }
-          <MenuItem ></MenuItem>
         </Select>
       </FormControl>
     </Box>
