@@ -30,7 +30,6 @@ function App() {
       value:lot.id,
       label:lot.name,
     }))
-    console.log(displaylot)
     setlotOptions(options);
     
   }
@@ -63,11 +62,15 @@ const handleButtonClick=(e)=>{
   e.preventDefault();
   axios
   .get(`http://localhost:8000/data/lotdata/${selectedLot}/`)
-.then((response)=>{
-  const lotData=response.data.data[0]
-  console.log(response)
-})
+  .then((response)=>{
+      const lotData=response.data.data[0]
+      setdata(lotData)
+      console.log(data)
+    })
+    .catch(error=>console.error("the error is : ",error))
+
 }
+
 
   return (
     <div className="main-flex-styling">
@@ -91,7 +94,9 @@ const handleButtonClick=(e)=>{
         handleSubmit= {handleButtonClick}/>
       </div>
       <Lotdetails/>
-      <BasicTable/>
+      {data &&  <BasicTable lotData={data}/> }
+
+     
       
      </div>
     
