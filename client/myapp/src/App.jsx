@@ -16,26 +16,27 @@ import Headings from './atoms/headings/headings';
 
 function App() {
   const[lotOptions,setlotOptions] =useState([]);
-  const [selectedLot, setselectedLot] = useState([]);
+const [selectedLot, setselectedLot] =  useState("");
+  const [data,setdata]= useState([]);
 
   useEffect(()=>{
     axios
     .get("http://localhost:8000/lot/")
     .then((response)=>{
       setlotOptions(response.data.data[0])
-      console.log(lotOptions)
     })
   })
 
 
-//  useEffect(()=>{
-//   axios
-//   .get("http://localhost:8000/data/lotdata/65bb48db5b73faa57f415000")
-//   .then((response)=>{
-//     setselectedLot(response.data.data[0])
-//     console.log(selectedLot)
-//   })
-// })
+ useEffect(()=>{
+  axios
+  .get("http://localhost:8000/data/lotdata/65bb48db5b73faa57f415000")
+  .then((response)=>{
+    const displaylot = response.data.data[0]
+    
+  setselectedLot(response.data.data[0])
+    
+    }) })
 
 
 

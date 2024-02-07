@@ -6,7 +6,6 @@ import Select from '@mui/material/Select';
 import { MenuItem } from '@mui/material';
 
 const SelectField = ({ options ,handleChange}) => {
-  console.log(options)
   
   return (
     <div>
